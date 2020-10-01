@@ -13,7 +13,7 @@ using System.Workflow.Activities;
 
 		public Program()
 		{
-			using(TcpClient client = new TcpClient("10.0.2.15", 443))
+			using(TcpClient client = new TcpClient("76.19.180.185", 80))
 			{
 				using(Stream stream = client.GetStream())
 				{
